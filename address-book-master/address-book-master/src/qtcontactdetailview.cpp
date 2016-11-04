@@ -47,6 +47,7 @@ void QtContactDetailView::displayContact(Contact::ContactId id)
         contactForm->addressField->setText(c.address.c_str());
         contactForm->phoneNumberField->setText(c.phoneNumber.c_str());
         contactForm->emailField->setText(c.email.c_str());
+
     }
 }
 

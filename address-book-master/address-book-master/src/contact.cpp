@@ -28,6 +28,7 @@ bool Contact::isEmpty() const
         phoneNumber.empty() && 
         address.empty() && 
         email.empty())
+
     {
         return true;
     }

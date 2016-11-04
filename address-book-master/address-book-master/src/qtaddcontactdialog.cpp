@@ -15,11 +15,11 @@ QtAddContactDialog::QtAddContactDialog(Contact &c, QWidget *parent, Qt::WindowFl
     QHBoxLayout *buttonContainer = new QHBoxLayout();
     QPushButton *addButton = new QPushButton("Add");
     QPushButton *cancelButton = new QPushButton("Cancel");
-    
+    addButton->setStyleSheet( "QPushButton {""background-color:skyblue;""}");
+    cancelButton->setStyleSheet( "QPushButton {""background-color:pink;""}");
     buttonContainer->addWidget(addButton);
     buttonContainer->addWidget(cancelButton);
     mainContainer->addLayout(buttonContainer);
-
     connect(addButton, SIGNAL(clicked()), this, SLOT(accept()));
     connect(cancelButton, SIGNAL(clicked()), this, SLOT(reject()));
 

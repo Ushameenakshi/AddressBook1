@@ -21,7 +21,7 @@ QtAddressBookGUI::QtAddressBookGUI(AddressBookController &controller, AddressBoo
     appController(controller), dataSource(model)
 {
     createWidgets();
-    setMinimumSize(640,480);
+    setMinimumSize(880,680);
 }
 
 QtAddressBookGUI::~QtAddressBookGUI()
@@ -40,11 +40,30 @@ void QtAddressBookGUI::createWidgets()
 
     list = new QtContactList(dataSource);
     list->setSizePolicy(QSizePolicy::Minimum, QSizePolicy::Minimum);
+    list->setStyleSheet(QString::fromUtf8("background-color: rgb(0, 255 , 255);"));
 
     newContactButton = new QPushButton("New Contact");
     editContactButton = new QPushButton("Edit");
     deleteContactButton = new QPushButton("Delete");
+    newContactButton->setObjectName(QString::fromUtf8("newContactButton"));
+    newContactButton->setIcon(QIcon(QPixmap("C:/Users/student/Downloads/address-book-master/build-address-book-Desktop_Qt_5_7_0_MinGW_32bit-Debug/Desert.jpg")));
 
+    newContactButton->setStyleSheet("QPushButton{""Background-color:green"";}");
+    editContactButton->setStyleSheet("QPushButton{""Background-color:blue"";}");
+    deleteContactButton->setStyleSheet("QPushButton{""Background-color:red"";}");
+    newContactButton = new QPushButton(QIcon("C:/Users/student/Desktop/and_icon.png"),"New Contact");
+        newContactButton->setStyleSheet("background-color:red");
+        QPalette* palette1 = new QPalette();
+        palette1 ->setColor(QPalette::ButtonText,Qt :: white);
+        newContactButton -> setPalette(*palette1);
+        newContactButton->setGeometry(20,20,50,40);
+        newContactButton->show();
+        editContactButton -> setPalette(*palette1);
+        editContactButton->setGeometry(20,20,50,40);
+        editContactButton->show();
+        deleteContactButton -> setPalette(*palette1);
+        deleteContactButton->setGeometry(20,20,50,40);
+        deleteContactButton->show();
     QHBoxLayout *buttonLayout = new QHBoxLayout();
     buttonLayout->addWidget(newContactButton);
     buttonLayout->addWidget(editContactButton);
@@ -205,5 +224,6 @@ void QtAddressBookGUI::deleteContact()
         delete errDialog;
         return;
     }
+
 }
 
